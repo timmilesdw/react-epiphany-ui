@@ -7,7 +7,7 @@
   "repository": "timmilesdw/react-epiphany-ui",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/index.js",
+  "source": "src/index.jsx",
   "engines": {
     "node": ">=10"
   },
@@ -53,5 +53,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "polished": "^3.6.3"
+  }
 }

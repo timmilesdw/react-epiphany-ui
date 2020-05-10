@@ -1,10 +1,15 @@
 import React from 'react'
+import { Button, ETheme } from 'react-epiphany-ui'
 
-import { ExampleComponent } from 'react-epiphany-ui'
-import 'react-epiphany-ui/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return(
+    <ETheme>
+      <div style={{display: 'flex', justifyContent: 'center', marginTop: '10%'}}>
+        <Button onClick={() => console.log('shish')} label="My Button"/>
+      </div>
+    </ETheme>
+  )
 }
 
 export default App
