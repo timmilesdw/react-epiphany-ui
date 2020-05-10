@@ -1,5 +1,9 @@
 {
   "parser": "babel-eslint",
+  "plugins": [
+    "no-loops",
+    "prefer-arrow"
+  ],
   "extends": [
     "standard",
     "standard-react",
@@ -19,15 +23,34 @@
   },
   "settings": {
     "react": {
-      "version": "16"
+      "version": "16.2"
     }
   },
   "rules": {
+    "no-plusplus": 2,
+    "import/no-default-export": 2,
     "space-before-function-paren": 0,
     "react/prop-types": 0,
     "react/jsx-handler-names": 0,
-    "react/jsx-fragments": 0,
+    "react/jsx-fragments": [2, "syntax"],
     "react/no-unused-prop-types": 0,
-    "import/export": 0
+    "import/export": 0,
+    "react/destructuring-assignment": [2, "always"],
+    "semi": "error",
+    "react/prefer-stateless-function": 2,
+    "no-loops/no-loops": 2,
+    "no-console": 1,
+    "no-unreachable": 2,
+    "eqeqeq": 2,
+    "no-redeclare": 2,
+    "func-style": ["error", "expression"],
+    "prefer-arrow/prefer-arrow-functions": [
+      "error",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false
+      }
+    ]
   }
 }
