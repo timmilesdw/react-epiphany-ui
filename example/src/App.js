@@ -29,7 +29,7 @@ const App = () => {
         </div>
       </div>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '2%'}}>
-        <Button color={color} size={size} onClick={() => setEvent(!event)} label="press me"/>
+        <Button text color={color} size={size} onClick={() => setEvent(!event)} label="press me"/>
       </div>
     </ETheme>
   )

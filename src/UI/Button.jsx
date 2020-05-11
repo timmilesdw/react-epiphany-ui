@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Button = ({ label, color, size, onClick }) => {
+export const Button = ({ text, label, color, size, onClick }) => {
 	return (
-		<Btn onClick={onClick} size={size} color={color}>
+		<Btn text={text} onClick={onClick} size={size} color={color}>
 			{label}
 		</Btn>
 	)
@@ -34,7 +34,6 @@ const Btn = styled.button`
 	font-weight: 500;
 	justify-content: center;
 	outline: 0;
-	position: relative;
 	text-transform: uppercase;
 	text-decoration: none;
 	transition: all 0.2s ease;
@@ -42,7 +41,16 @@ const Btn = styled.button`
 	vertical-align: middle;
 	white-space: nowrap;
 	box-shadow: 0 0 4px #999;
+	position: relative;
+	overflow: hidden;
 	cursor: pointer;
+	${(props) =>
+		props.text
+			? `background: transparent; color: ${
+					props.color ? props.color : props.theme.colors.main
+			  };
+			  box-shadow: none`
+			: null};
 	:after {
 		content: '';
 		display: block;
@@ -52,7 +60,12 @@ const Btn = styled.button`
 		top: 0;
 		left: 0;
 		pointer-events: none;
-		background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+		${(props) =>
+			props.text
+				? `background-image: radial-gradient(circle, ${
+						props.color ? props.color : props.theme.colors.main
+				  } 10%, transparent 10.01%)`
+				: `background-image: radial-gradient(circle, #fff 10%, transparent 10.01%)`};
 		background-repeat: no-repeat;
 		background-position: 50%;
 		transform: scale(10, 10);
