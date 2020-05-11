@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-epiphany-ui/precache-manifest.75546b5e36aec58fda1beb5f57b20dcc.js"
+  "/react-epiphany-ui/precache-manifest.bcdb288d5447c63b829c5338dd480124.js"
 );
 
 self.addEventListener('message', (event) => {
