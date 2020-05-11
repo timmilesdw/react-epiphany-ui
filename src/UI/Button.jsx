@@ -1,9 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Button = ({ text, label, color, size, onClick }) => {
+export const Button = ({ outlined, text, label, color, size, onClick }) => {
 	return (
-		<Btn text={text} onClick={onClick} size={size} color={color}>
+		<Btn
+			outlined={outlined}
+			text={text}
+			onClick={onClick}
+			size={size}
+			color={color}
+		>
 			{label}
 		</Btn>
 	)
@@ -12,21 +18,7 @@ export const Button = ({ text, label, color, size, onClick }) => {
 const Btn = styled.button`
 	color: white;
 	mix-blend-mode: difference;
-	background: ${(props) =>
-		props.color ? props.color : props.theme.colors.main};
 	align-items: center;
-	${(props) =>
-		props.size
-			? props.size === 'xs'
-				? props.theme.buttonSizes.xs
-				: props.size === 'sm'
-				? props.theme.buttonSizes.sm
-				: props.size === 'md'
-				? props.theme.buttonSizes.md
-				: props.size === 'lg'
-				? props.theme.buttonSizes.lg
-				: props.theme.buttonSizes.default
-			: props.theme.buttonSizes.default};
 	border-radius: 3px;
 	border: none;
 	display: inline-flex;
@@ -44,11 +36,29 @@ const Btn = styled.button`
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
+	background: ${(props) =>
+		props.color ? props.color : props.theme.colors.main};
+	${(props) =>
+		props.size === 'xs'
+			? props.theme.buttonSizes.xs
+			: props.size === 'sm'
+			? props.theme.buttonSizes.sm
+			: props.size === 'md'
+			? props.theme.buttonSizes.md
+			: props.size === 'lg'
+			? props.theme.buttonSizes.lg
+			: props.theme.buttonSizes.default};
 	${(props) =>
 		props.text
 			? `background: transparent; color: ${
 					props.color ? props.color : props.theme.colors.main
 			  };
+			  box-shadow: none`
+			: props.outlined
+			? `background: transparent; color: ${
+					props.color ? props.color : props.theme.colors.main
+			  };
+			  border: 1px solid ${props.color ? props.color : props.theme.colors.main};
 			  box-shadow: none`
 			: null};
 	:after {
@@ -60,17 +70,17 @@ const Btn = styled.button`
 		top: 0;
 		left: 0;
 		pointer-events: none;
-		${(props) =>
-			props.text
-				? `background-image: radial-gradient(circle, ${
-						props.color ? props.color : props.theme.colors.main
-				  } 10%, transparent 10.01%)`
-				: `background-image: radial-gradient(circle, #fff 10%, transparent 10.01%)`};
 		background-repeat: no-repeat;
 		background-position: 50%;
 		transform: scale(10, 10);
 		opacity: 0;
 		transition: transform 0.5s, opacity 1s;
+		${(props) =>
+			props.text || props.outlined
+				? `background-image: radial-gradient(circle, ${
+						props.color ? props.color : props.theme.colors.main
+				  } 10%, transparent 10.01%)`
+				: `background-image: radial-gradient(circle, #fff 10%, transparent 10.01%)`};
 	}
 	:active:after {
 		transform: scale(0, 0);
