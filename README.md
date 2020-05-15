@@ -41,4 +41,4 @@ yarn add react-epiphany-ui //unavilable right now
 
 ## License
 
-MIT © [timmilesdw](https://github.com/timmilesdw) [ekoretsky](https://github.com/EKoretsky)
+MIT © [timmilesdw](https://github.com/timmilesdw) [ekoretsky](https://github.com/EKoretsky) [Imgubitch](https://github.com/Imgubitch)
