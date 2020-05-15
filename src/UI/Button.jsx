@@ -1,7 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Button = ({ outlined, text, label, color, size, onClick }) => {
+export const Button = ({
+	outlined,
+	text,
+	label,
+	color,
+	size,
+	onClick,
+	disabled
+}) => {
 	return (
 		<Btn
 			outlined={outlined}
@@ -9,6 +17,7 @@ export const Button = ({ outlined, text, label, color, size, onClick }) => {
 			onClick={onClick}
 			size={size}
 			color={color}
+			disabled={disabled}
 		>
 			{label}
 		</Btn>
@@ -16,7 +25,7 @@ export const Button = ({ outlined, text, label, color, size, onClick }) => {
 }
 
 const Btn = styled.button`
-	color: white;
+	color: ${(props) => (props.disabled ? '#aeaeae' : '#fff')};
 	mix-blend-mode: difference;
 	align-items: center;
 	border-radius: 3px;
@@ -35,9 +44,13 @@ const Btn = styled.button`
 	box-shadow: 0 0 4px #999;
 	position: relative;
 	overflow: hidden;
-	cursor: pointer;
+	cursor: ${(props) => (props.disabled ? 'auto' : 'pointer')};
 	background: ${(props) =>
-		props.color ? props.color : props.theme.colors.main};
+		props.disabled
+			? '#dadada'
+			: props.color
+			? props.color
+			: props.theme.colors.main};
 	${(props) =>
 		props.size === 'xs'
 			? props.theme.buttonSizes.xs
@@ -49,17 +62,19 @@ const Btn = styled.button`
 			? props.theme.buttonSizes.lg
 			: props.theme.buttonSizes.default};
 	${(props) =>
-		props.text
-			? `background: transparent; color: ${
-					props.color ? props.color : props.theme.colors.main
-			  };
-			  box-shadow: none`
-			: props.outlined
-			? `background: transparent; color: ${
-					props.color ? props.color : props.theme.colors.main
-			  };
-			  border: 1px solid ${props.color ? props.color : props.theme.colors.main};
-			  box-shadow: none`
+		!props.disabled
+			? props.text
+				? `background: transparent; color: ${
+						props.color ? props.color : props.theme.colors.main
+				  };
+			  	box-shadow: none`
+				: props.outlined
+				? `background: transparent; color: ${
+						props.color ? props.color : props.theme.colors.main
+				  };
+			  	border: 1px solid ${props.color ? props.color : props.theme.colors.main};
+			  	box-shadow: none`
+				: null
 			: null};
 	:after {
 		content: '';
@@ -88,6 +103,6 @@ const Btn = styled.button`
 		transition: 0s;
 	}
 	:hover:after {
-		opacity: 0.2;
+		opacity: ${(props) => (props.disabled ? '0' : '0.2')};
 	}
 `

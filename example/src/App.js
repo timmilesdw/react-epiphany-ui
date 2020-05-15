@@ -8,6 +8,8 @@ const App = () => {
   const [event, setEvent] = useState(false)
   const [outlined, setOutlined] = useState(false)
   const [text, setText] = useState(false)
+  const [disabled, setDisabled] = useState(false)
+
   return(
     <ETheme>
       <div style={{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', textAlign: 'center', marginTop: '10%'}}>
@@ -37,9 +39,13 @@ const App = () => {
           <div>Text</div>
           <Button size="xs" color="red" label={text ? 'true' : 'false'} onClick={() => setText(!text)}/>
         </div>
+        <div>
+          <div>Disabled</div>
+          <Button size="xs" color="green" label={disabled ? 'true' : 'false'} onClick={() => setDisabled(!disabled)}/>
+        </div>
       </div>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '2%'}}>
-        <Button text={text} outlined={outlined} color={color} size={size} onClick={() => setEvent(!event)} label="press me"/>
+        <Button text={text} outlined={outlined} color={color} size={size} disabled={disabled} onClick={() => setEvent(!event)} label="press me"/>
       </div>
     </ETheme>
   )
