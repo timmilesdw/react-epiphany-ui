@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "329309db3040254f03f360bc02702df1",
+    "revision": "d6532392b9dfd31d31633f1f87ba8618",
     "url": "/react-epiphany-ui/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-epiphany-ui/static/js/2.d9dcbd0d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ab1282b1477ad796a85b",
-    "url": "/react-epiphany-ui/static/js/main.c121b53c.chunk.js"
+    "revision": "7866c35380d277186176",
+    "url": "/react-epiphany-ui/static/js/main.b97e18b9.chunk.js"
   },
   {
     "revision": "f41162eb83e383ed0d58",
