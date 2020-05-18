@@ -3,12 +3,14 @@ import styled from 'styled-components'
 
 export const Button = ({
 	outlined,
+	rounded,
 	text,
 	label,
 	color,
 	size,
 	onClick,
-	disabled
+	disabled,
+	block
 }) => {
 	return (
 		<Btn
@@ -18,6 +20,8 @@ export const Button = ({
 			size={size}
 			color={color}
 			disabled={disabled}
+			rounded={rounded}
+			block={block}
 		>
 			{label}
 		</Btn>
@@ -25,10 +29,11 @@ export const Button = ({
 }
 
 const Btn = styled.button`
+	width: ${(props) => (props.block ? '100%' : 'auto')};
 	color: ${(props) => (props.disabled ? '#aeaeae' : '#fff')};
 	mix-blend-mode: difference;
 	align-items: center;
-	border-radius: 3px;
+	border-radius: ${(props) => (props.rounded ? '25px' : '3px')};
 	border: none;
 	display: inline-flex;
 	flex: 0 0 auto;

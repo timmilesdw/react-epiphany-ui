@@ -9,6 +9,8 @@ const App = () => {
   const [outlined, setOutlined] = useState(false)
   const [text, setText] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [rounded, setRounded] = useState(false)
+  const [block, setBlock] = useState(false)
 
   return(
     <ETheme>
@@ -36,6 +38,10 @@ const App = () => {
           <Button size="xs" color="purple" label={outlined ? 'true' : 'false'} onClick={() => setOutlined(!outlined)}/>
         </div>
         <div>
+          <div>Rounded</div>
+          <Button size="xs" color="#e15f41" label={rounded ? 'true' : 'false'} onClick={() => setRounded(!rounded)}/>
+        </div>
+        <div>
           <div>Text</div>
           <Button size="xs" color="red" label={text ? 'true' : 'false'} onClick={() => setText(!text)}/>
         </div>
@@ -43,9 +49,13 @@ const App = () => {
           <div>Disabled</div>
           <Button size="xs" color="green" label={disabled ? 'true' : 'false'} onClick={() => setDisabled(!disabled)}/>
         </div>
+        <div>
+          <div>Block</div>
+          <Button size="xs" color="#f5cd79" label={block ? 'true' : 'false'} onClick={() => setBlock(!block)}/>
+        </div>
       </div>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '2%'}}>
-        <Button text={text} outlined={outlined} color={color} size={size} disabled={disabled} onClick={() => setEvent(!event)} label="press me"/>
+        <Button text={text} outlined={outlined} rounded={rounded} color={color} size={size} disabled={disabled} block={block} onClick={() => setEvent(!event)} label="press me"/>
       </div>
     </ETheme>
   )
